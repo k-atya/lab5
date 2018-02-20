@@ -3,34 +3,38 @@
 <html>
 <head>
 	<title>My HCI Friends</title>
+
+	<!-- <meta> viewport element gives browser instructions on how to control page's dimensions and scaling. -->
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- width=device-width sets width of page to follow screen-width of device -->
+	<!-- initial-scale=1.0 sets initial zoom when page first loaded -->
 
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="/css/hci-friends.css" rel="stylesheet">
 
-
 </head>
 
 <body>
-	<div class="container">
+	<div class="container friends">
 
 		<h1>My HCI Friends</h1>
 
-		<!-- <div>
-			<img src="http://lorempixel.com/500/500/people"></img>
-			<h3>Fake Friend</h3>
-			<p>All my friends are imaginary. </p>
-		</div> -->
-
 		{{#each friends}}
-			<div class="friends">
-				<!-- <a href="#">{{name}}</a> -->
-				<p>{{name}}</p>
-				<img class = "img-responsive" src="{{imageURL}}">
-				<p>{{description}}</p>
+			<div class="parent">
+
+				<div class="friend">
+					<img class = "img-responsive img-rounded" src="{{imageURL}}">
+					<!-- <a href="#"><h3>{{name}}</h3></a> -->
+					<h3>
+						<a href="#" class="anagram">{{name}}</a>
+					</h3>
+					<p>{{description}}</p>
+				</div>
+
 			</div>
-		{{/each}}
+	{{/each}}
 
 
 		<form id="addFriendForm" role="form" method="get" action="/add">
@@ -48,11 +52,8 @@
 
 	</div>
 
-
 	<script src="/js/jquery-1.11.0.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/hci-friends.js"></script>
-
-
 </body>
 </html>
